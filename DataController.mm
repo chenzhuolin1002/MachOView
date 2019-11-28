@@ -163,7 +163,8 @@ NSString * const MVStatusTaskTerminated           = @"MVStatusTaskTerminated";
 //-----------------------------------------------------------------------------
 - (void)writeString:(NSString *)str toFile:(FILE *)pFile
 {
-  fwrite(CSTRING(str), [str length] + 1, 1, pFile);
+  NSString *strWrite = str ?: @"";
+  fwrite(CSTRING(strWrite), [strWrite length] + 1, 1, pFile);
 }
 
 //-----------------------------------------------------------------------------
